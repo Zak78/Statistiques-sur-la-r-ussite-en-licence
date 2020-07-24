@@ -1,0 +1,20 @@
+                form{
+
+                    margin: 20px 10px 10px 10px;
+                    padding: 20px;
+                    border-bottom-color: black;
+                    border-style: solid;
+                    border-width: 2px;
+                    border-radius: 10px;
+                    background-color: antiquewhite;
+
+                }
+
+                .input-group mb-3{
+                    width: 450px;
+                }
+
+                button{
+                  margin-left: 130px;
+                  width: 200px;
+                }
