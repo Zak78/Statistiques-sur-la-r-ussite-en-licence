@@ -1,0 +1,81 @@
+{
+    "Nom_De_Filiere": "L3 miage",
+    "Effectif": 33,
+    "AnneeScolaire":"2019-2020",
+    "Origine":[
+      {
+        "Nom": "L2",
+        "NombreDesEtudiants":12
+      },
+      {
+        "Nom": "Redoublants",
+        "NombreDesEtudiants":0
+      },
+      {
+        "Nom": "DUT",
+        "NombreDesEtudiants":3
+      },
+      {
+        "Nom": "Etrangers",
+        "NombreDesEtudiants":10
+      },
+      {
+        "Nom": "Autres",
+        "NombreDesEtudiants":1
+      }
+    ],
+    "semestre":[
+      {
+        "id":1,
+        "Reussite":[{
+          "Type":"Admis",
+          "NombreDesEtudiants":8
+        },
+        {
+          "Type":"Ajournes",
+          "NombreDesEtudiants":0
+        },
+        {
+          "Type":"Defaillants",
+          "NombreDesEtudiants":2
+        }
+  
+      ]},
+      {
+        "id":2,
+        "Reussite":[{
+          "Type":"Admis",
+          "NombreDesEtudiants":8
+        },
+        {
+          "Type":"Ajournes",
+          "NombreDesEtudiants":0
+        },
+        {
+          "Type":"Defaillants",
+          "NombreDesEtudiants":2
+        }
+  
+      ]}
+    ],
+    "Poursuite":[{
+      "Statut": "continue en M1",
+      "NombreDesEtudiants" :33
+      }],
+      "Etudiants":[{
+        "INE":"2198575",
+        "Origine":"L2",
+        "Semestre1":"Admis",
+        "Semestre2":"Ajournes",
+        "poursuite":"oui"
+      },
+      {
+        "INE":"2195075",
+        "Origine":"L2",
+        "Semestre1":"Admis",
+        "Semestre2":"Ajournes",
+        "poursuite":"oui"
+      }
+      ]
+  }
+  
