@@ -1,0 +1,86 @@
+                form{
+
+                    margin: 20px 10px 10px 10px;
+                    padding: 20px;
+                    border-bottom-color: black;
+                    border-style: solid;
+                    border-width: 2px;
+                    border-radius: 10px;
+                    background-color: antiquewhite;
+                    width: 500px;
+
+                }
+                #inputFiliere{
+                  margin-left: 5px;
+                  
+                }
+                #labelFiliere{
+                  margin-left: 8px;
+                  width: 120px;
+                }
+                #inputYear{
+                  margin-left: 15px;
+                }
+                #labelYear{
+                  margin-left: 15px;
+                }
+                #QTDiv{
+                 
+                  margin-left: 15px;
+                  margin-top: 20px;
+                  border-radius: 5px;
+                  
+                }
+                
+                #divRech2{
+                  margin-top: 30px;
+                  padding-top: 20px;
+                  text-align: right;
+                  border:1px solid darkgoldenrod;
+                  width: 700px;
+                  margin-left: 10px;
+                  height: 100px;
+                  padding: 2px;
+                  display: inline-block;
+                  border-radius: 5px;
+                }
+                
+                #divRech1{
+                  text-align: left;
+                  border:1px solid darkgoldenrod;
+                  width: 500px;
+                  height: 100px;
+                  margin-left: 10px;
+                  padding: 5px;
+                  display: inline-block;
+                  border-radius: 5px;
+                }
+              /*  #divForm{
+                  background-color: darkgoldenrod;
+                  width: 520px;
+                  margin-left: 10px;
+                  padding: 5px;
+                  display: inline-block;
+                }
+
+                #divTable{
+                    background-color: darkgreen;
+                    width: 520px;
+                    margin-left: 10px;
+                    display: inline-block;
+                }*/
+               
+                .input-group mb-3{
+                    width: 450px;
+                }
+
+                #btnChercher{
+                  margin-left: 130px;
+                  width: 200px;
+                }
+                button{
+                  width: 110px;;
+                }
+                #tableResultat{
+                  margin-top: 20px;
+                }
