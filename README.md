@@ -1,4 +1,4 @@
-# projet_front
+# projet_statistiques
 
 > A Vue.js project
 
