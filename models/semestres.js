@@ -1,4 +1,4 @@
-export default class semestre{
+export class Semestre{
     constructor(semestreUn , semestreDeux)
     {
         this.semestreUn=semestreUn;
@@ -23,3 +23,4 @@ export default class semestre{
         this._semestreDeux=valeur;
     }
 }
+export default new Semestre("","")

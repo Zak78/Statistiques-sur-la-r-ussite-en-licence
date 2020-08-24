@@ -1,11 +1,13 @@
-export default class Etudiant{
+import {Semestre} from './semestres'
+export class Etudiant{
 
-    constructor(ine, origine,semestres,poursuite)
+    constructor(ine, origine,semestres,poursuite,reussite)
     {
-        this.ine=ine;
-        this.origine=origine;
-        this.semestres=semestres;
-        this.poursuite=poursuite;
+        this._ine=ine;
+        this._origine=origine;
+        this._semestres=semestres;
+        this._poursuite=poursuite;
+        this._reussite=reussite;
     }
 
     get ine()
@@ -46,4 +48,23 @@ export default class Etudiant{
 
         this._poursuite=valeur;
     }
+
+    get reussite()
+    {
+        return this._reussite;
+    }
+
+    set reussite(valeur)
+    {
+        this._reussite=valeur;
+    }
+    modifier(origine,semestres,poursuite,reussite)
+    {
+        this._origine=origine;
+        this._semestres=semestres;
+        this._poursuite=poursuite;
+        this._reussite=reussite;
+    }
+
 }
+export default new Etudiant("","",new Semestre("",""),"","")
