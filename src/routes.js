@@ -1,6 +1,8 @@
 import Vue from "vue"
 import VueRouter from "vue-router"
-import Manip from "./etudiant/EtudiantsManipulation"
+import ManipEtudiant from "./etudiant/EtudiantsManipulation"
+import statist from "./Stat/statis"
+import ManipFiliere from "./Filiere/FiliereManipulation"
 
 import Home from "./Home.vue"
 
@@ -14,11 +16,11 @@ export const router =new VueRouter({
   },
   {
     path: "/etudiant",
-    component : Manip,
+    component : ManipEtudiant,
     /*children : [
       {
         path : "/",
-        component : Manip
+        component : ManipEtudiant
       },
       {
         path : "/etudiant/edit",
@@ -26,6 +28,15 @@ export const router =new VueRouter({
       }
 
     ]*/
+  },
+  {
+    path : "/statistiques",
+    component : statist,
+  },
+  {
+    path : "/filieres",
+    component : ManipFiliere,
   }
+
   ]
 })

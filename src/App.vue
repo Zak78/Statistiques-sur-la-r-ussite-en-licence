@@ -1,6 +1,5 @@
 <template>
   <MenuApp>
-
   </MenuApp>
 </template>
 
