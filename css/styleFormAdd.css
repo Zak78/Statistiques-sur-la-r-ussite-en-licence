@@ -1,3 +1,7 @@
+                .all{
+                  margin:10px;
+                }
+
                 form{
 
                     margin: 20px 10px 10px 10px;
@@ -10,19 +14,26 @@
                     width: 500px;
 
                 }
+                
                 #inputFiliere{
                   margin-left: 5px;
                   
                 }
                 #labelFiliere{
-                  margin-left: 8px;
-                  width: 120px;
+                  margin-left: 20px;
+                  width: 190px;
                 }
                 #inputYear{
                   margin-left: 15px;
                 }
                 #labelYear{
                   margin-left: 15px;
+                  width: 190px;
+                }
+                #filtrageTaux{
+                  margin-left: 25px;
+                  width: 190px;
+                  margin-top: 30px;
                 }
                 #QTDiv{
                  
@@ -31,56 +42,92 @@
                   border-radius: 5px;
                   
                 }
-                
-                #divRech2{
-                  margin-top: 30px;
+                #divFiltre{
+                  padding-left: 100px;
+                }
+                .divRech2{
+                  margin-top: 10px;
                   padding-top: 20px;
-                  text-align: right;
+                  
                   border:1px solid darkgoldenrod;
-                  width: 700px;
                   margin-left: 10px;
                   height: 100px;
                   padding: 2px;
-                  display: inline-block;
                   border-radius: 5px;
                 }
                 
-                #divRech1{
-                  text-align: left;
+                .divRech1{
                   border:1px solid darkgoldenrod;
-                  width: 500px;
-                  height: 100px;
+                  height: 80px;
                   margin-left: 10px;
-                  padding: 5px;
-                  display: inline-block;
+                  text-align: center;
                   border-radius: 5px;
+                }  
+              #polaroid{
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+              }
+                #TabStatic{
+                text-align: center;
+                margin: 50px;
                 }
-              /*  #divForm{
-                  background-color: darkgoldenrod;
-                  width: 520px;
-                  margin-left: 10px;
-                  padding: 5px;
-                  display: inline-block;
+                
+                #inputFile{
+                  margin-left: 40px;
+                  margin-top: 22px;
                 }
-
-                #divTable{
-                    background-color: darkgreen;
-                    width: 520px;
-                    margin-left: 10px;
-                    display: inline-block;
-                }*/
-               
-                .input-group mb-3{
-                    width: 450px;
+                #btnSauvegarder{
+                  
+                  margin-left: 30px;
+                  width: 150px;
                 }
-
                 #btnChercher{
                   margin-left: 130px;
                   width: 200px;
+                  height: 40px;
+                  margin-top: 22px;
                 }
                 button{
-                  width: 110px;;
+                  width: 140px;;
                 }
                 #tableResultat{
                   margin-top: 20px;
+                }
+                #hoverCurseur:hover{
+                  background-color: gold;
+                  cursor: pointer;
+                }
+
+                #yearFiliere{
+                  margin-left: 20px;
+                }
+
+                #NomFiliere{
+                  margin-right: 30px;
+                }
+                table {
+                  border-collapse: collapse;
+                  width: 100%;
+                  border-width: 3px;
+                }
+                
+                th, td {
+                  text-align: center;
+                  padding: 8px;
+                }
+                
+                tr:nth-child(even){background-color: #f2f2f2}
+                
+                th {
+                  background-color:antiquewhite;
+                  color: black;
+                }
+                table, td, th {
+                  border: 1px solid black;
+                }
+                
+                table {
+                  border-collapse: collapse;
+                  width: 100%;
                 }
