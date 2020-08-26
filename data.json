@@ -1,0 +1,41 @@
+[
+   {
+      "_nom":"L3 Miage",
+      "_annee":"2019",
+      "_etudiants":[
+         {
+            "_ine":"345678",
+            "_origine":"L2",
+            "_semestres":{
+               "_semestreUn":"Admis",
+               "_semestreDeux":"Admis"
+            },
+            "_poursuite":"Oui"
+         },
+         {
+            "_ine":"111111",
+            "_origine":"L2",
+            "_semestres":{
+               "_semestreUn":"Admis",
+               "_semestreDeux":"En cours"
+            },
+            "_poursuite":"OuiUHA"
+         }
+      ]
+   },
+   {
+      "_nom":"L3 Info",
+      "_annee":"2018",
+      "_etudiants":[
+         {
+            "_ine":"567890",
+            "_origine":"S",
+            "_semestres":{
+               "_semestreUn":"Admis",
+               "_semestreDeux":"Admis"
+            },
+            "_poursuite":"Oui"
+         }
+      ]
+   }
+]
