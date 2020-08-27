@@ -47,7 +47,7 @@
 
     <div id="TabStatic">
 <!-- l'affichage du tableau de chiffres et des statistiques sa depend du type selectionné -->
-      <div v-show="selected_type==='Effectif'" class="tabAffichage">
+      <div v-show="selected_type==='Effectif'" class="tabAffichage" >
         <table  >
           <thead>
             <th v-for="(ann,a) in annees_affich" :key="a">{{ann}}</th>
@@ -56,7 +56,9 @@
             <td v-for="(effect,ef) in effectifs_tab" :key="ef">{{effect}}</td>
           </tbody>
         </table>
-      
+      </div>
+      <div>
+        <canvas id="grapheff"></canvas>
       </div>
 
       <div v-show="selected_type==='Origine'" class="tabAffichage">
@@ -74,6 +76,7 @@
         </table>
       
       </div>
+
 
        <div v-show="selected_type==='Taux de reussite'" class="tabAffichage">
         <table >
@@ -114,6 +117,7 @@
 
 </template>
 <script>
+
 //import { Bar } from 'vue-chartjs'
 //import { Line } from 'vue-chartjs'
 
@@ -178,19 +182,25 @@ export default {
         for (let ann of this.annees_affich) {
           if (filiere._nom === this.selected_filiere && filiere._annee === ann)
             {
-              
-            if (this.selected_type === "Effectif") {
+
+              if (this.selected_type === "Effectif") {
+                document.getElementById("grapheff").innerHTML = '&nbsp;';
+                document.getElementById("grapheff").innerHTML = '<canvas id="grapheff"></canvas>';
               this.effectif = filiere.calculer_effectif();
               this.effectifs_tab.push(this.effectif);
+              this.eff()
              
             } else {
-              if (this.selected_type === "Origine") {
+                if (this.selected_type === "Origine") {
+                  document.getElementById("grapheff").innerHTML = '&nbsp;';
+                  document.getElementById("grapheff").innerHTML = '<canvas id="grapheff"></canvas>';
                 this.rowOrigine.push(ann);
                 for (let type of this.type_origine) {
                   this.nombreOrigine = filiere.calculer_origine(type);
                   this.rowOrigine.push(this.nombreOrigine);
                   this.tauxOrigine=(this.nombreOrigine*100)/filiere.calculer_effectif();
                   this.rowOrigine.push(this.tauxOrigine + "%");
+                  this.origine()
                 
                 }
                 this.origines_tab.push(this.rowOrigine);
@@ -200,6 +210,8 @@ export default {
               } 
               else {
                 if (this.selected_type === "Poursuite") {
+                  document.getElementById("grapheff").innerHTML = '&nbsp;';
+                  document.getElementById("grapheff").innerHTML = '<canvas id="grapheff"></canvas>';
                   this.rowPoursuite.push(ann);
                   for (let type of this.type_poursuite) {
                     this.nombrePoursuite = filiere.calculer_poursuite(type);
@@ -209,6 +221,7 @@ export default {
                   }
                   this.poursuite_tab.push(this.rowPoursuite);
                   this.rowPoursuite = [];
+                  this.poursuite()
                   
                 }
                 else {
@@ -216,6 +229,8 @@ export default {
                   this.filtrage=true;
                   if(this.selected_type_reussite === "Semestre 1")
                   {
+                    document.getElementById("grapheff").innerHTML = '&nbsp;';
+                    document.getElementById("grapheff").innerHTML = '<canvas id="grapheff"></canvas>';
                     this.rowReussite.push(ann);
                     for(let type of this.type_reussite){
                     this.nombreReussite = filiere.calculer_reussite(type,"s1");
@@ -223,8 +238,11 @@ export default {
                     this.tauxSemestresUn =(this.nombreReussite*100)/filiere.calculer_effectif();
                      this.rowReussite.push(this.tauxSemestresUn + " %");
                     }
+                    this.semestreFCT()
                   }else if(this.selected_type_reussite === "Semestre 2")
                   {
+                    document.getElementById("grapheff").innerHTML = '&nbsp;';
+                    document.getElementById("grapheff").innerHTML = '<canvas id="grapheff"></canvas>';
                     this.rowReussite.push(ann);
                     for(let type of this.type_reussite){
                     this.nombreReussite = filiere.calculer_reussite(type,"s2");
@@ -232,8 +250,11 @@ export default {
                     this.tauxSemestresDeux =(this.nombreReussite*100)/filiere.calculer_effectif();
                      this.rowReussite.push(this.tauxSemestresDeux + " %");
                     }
+                    this.semestreFCT()
                   }else if(this.selected_type_reussite === "Année")
                   {
+                    document.getElementById("grapheff").innerHTML = '&nbsp;';
+                    document.getElementById("grapheff").innerHTML = '<canvas id="grapheff"></canvas>';
                     this.rowReussite.push(ann);
                     for(let type of this.type_reussite){
                     this.nombreReussite = filiere.calculer_reussite(type,"Année");
@@ -242,6 +263,7 @@ export default {
                      this.rowReussite.push(this.tauxAnnee + " %");
                     
                     }
+                    this.semestreFCT()
                   }
                   this.reussite_tab.push(this.rowReussite);
                   this.rowReussite=[];
@@ -313,8 +335,91 @@ export default {
       };
       reader.readAsText(file);
     },
+    eff(){
+      console.log(this.annees_affich)
+      let ctx = document.getElementById("grapheff").getContext('2d')
+
+      var myBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels : [this.annees_affich[0]],
+          datasets: [{
+            label: this.annees_affich[0],
+            data: this.effectifs_tab
+          }]
+        },
+
+      });
+    },
+    origine(){
+      let L2 = this.rowOrigine[1]
+      let Redoublant = this.rowOrigine[3]
+      let DUT = this.rowOrigine[5]
+      let Etranger = this.rowOrigine[7]
+      let Autre = this.rowOrigine[9]
+      let ctx = document.getElementById("grapheff").getContext('2d')
+      var myPieChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          datasets: [{
+            data: [L2, Redoublant, DUT, Etranger, Autre],
+            backgroundColor:["#ff6384","#36a2eb","#cc65fe","Grey","#ffce56"],
+
+          }],
+
+          // These labels appear in the legend and in the tooltips when hovering different arcs
+          labels: ['L2', 'Redoublant', 'DUT', 'Etranger', 'Autre']
+        },
+      });
+    },
+    poursuite(){
+      console.log(this.poursuite_tab[0][3])
+      let oui = this.poursuite_tab[0][1]
+      let non = this.poursuite_tab[0][3]
+      let ouiUHA = this.poursuite_tab[0][5]
+      let ctx = document.getElementById("grapheff").getContext('2d')
+      var myPieChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          datasets: [{
+            data: [oui, non, ouiUHA],
+            backgroundColor:["#ff6384","#36a2eb","Grey"],
+
+          }],
+
+          // These labels appear in the legend and in the tooltips when hovering different arcs
+          labels: ['OUI', 'NON', 'OUIUHA']
+        },
+      });
+
+    },
+    semestreFCT(){
+      let admis = this.rowReussite[1]
+      let aj = this.rowReussite[3]
+      let def = this.rowReussite[5]
+      let ctx = document.getElementById("grapheff").getContext('2d')
+      var myPieChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          datasets: [{
+            data: [admis, aj, def],
+            backgroundColor:["#ff6384","#36a2eb","Grey"],
+
+          }],
+
+          // These labels appear in the legend and in the tooltips when hovering different arcs
+          labels: ['ADMIS', 'AJOURNE', 'DEFAILLANT']
+        },
+      });
+
+
+    },
+
+
   },
 };
+
+
 </script>
 
 
